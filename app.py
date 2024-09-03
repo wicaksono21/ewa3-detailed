@@ -7,6 +7,7 @@ import pytz
 import json
 import csv
 import time
+import threading
 
 # Initialize Firebase
 if not firebase_admin._apps:
@@ -167,13 +168,12 @@ if prompt := st.chat_input():
 
 # Function to keep the session alive
 def keep_alive():
-    if st.session_state['logged_in']:
-        # Display a message to keep the connection active
+    while st.session_state['logged_in']:
+        # Send a keep-alive signal or perform a lightweight action
         st.write("Keeping session alive...")
         time.sleep(60)  # Wait for 60 seconds (1 minute)
-        # Call the function recursively
-        keep_alive()
 
-# Start the keep-alive process
+# Start the keep-alive process in a separate thread
 if st.session_state['logged_in']:
-    keep_alive()
+    threading.Thread(target=keep_alive, daemon=True).start()
+

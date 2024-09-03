@@ -145,7 +145,14 @@ Additional Guidelines:
 • Interactive Assistance: Engage the student in an interactive manner, encouraging them to think and write independently.
 • Clarifications: Always ask for clarification if the student's request is unclear to avoid giving a complete essay response
         """}),
-        add_timestamp({"role": "assistant", "content": "Hi there! Ready to start your essay? I'm here to guide and help you improve your essay writing skills through a series of activities, starting with topic selection and continuing through outlining, drafting, reviewing, and proofreading. What topic are you interested in writing about? If you’d like suggestions, just let me know!"})
+        add_timestamp({"role": "assistant", "content": "Hi there! Ready to start your essay? I'm here to guide and help you improve your essay writing skills with activities like:\n"
+               "1. **Topic Selection**\n"
+               "2. **Outlining**\n"
+               "3. **Drafting**\n"
+               "4. **Reviewing**\n"
+               "5. **Proofreading**\n\n"
+               "What topic are you interested in writing about? If you'd like suggestions, just let me know!"
+                    })
     ]
     save_chat_log()
 

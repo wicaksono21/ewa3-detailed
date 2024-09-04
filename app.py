@@ -79,7 +79,7 @@ def handle_chat(prompt):
     
     # Simulate AI response
     response = OpenAI(api_key=st.secrets["default"]["OPENAI_API_KEY"]).chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-4o",
         messages=st.session_state["messages"],
         temperature=1,
         max_tokens=4095
@@ -124,7 +124,7 @@ Avoid full drafts: No complete paragraphs or essays will be provided.
 Instructions:
 1. Topic Selection: Begin by asking the student for their preferred topic or suggest 4-5 topics. Move forward only after a topic is chosen.
 
-2. Outline Creation: Prompt the student to draft an outline (introduction, body paragraphs, conclusion) using guiding questions. Avoid giving examples.
+2. Outline Creation: Prompt the student to draft an outline (introduction, body paragraphs, conclusion) using guiding questions. Avoid giving examples/suggested structure.
     - Wait for Submission: Pause and wait for the student's draft.
     - Feedback and Confirmation: Provide feedback on their outline, suggest revisions, and confirm the final version before proceeding to the essay draft.
 

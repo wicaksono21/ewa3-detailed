@@ -82,7 +82,7 @@ def handle_chat(prompt):
         model="gpt-4o",
         messages=st.session_state["messages"],
         temperature=1,
-        max_tokens=4095
+        max_tokens=300
     )
     st.session_state["messages"].append(add_timestamp({"role": "assistant", "content": response.choices[0].message.content}))
     st.chat_message("assistant").write(response.choices[0].message.content)
@@ -119,12 +119,12 @@ Response Length : Elaborate your answers. Max. 200 words per responses.
 
 Focus on questions and hints: Only ask guiding questions and provide hints to stimulate student writing.
 
-Avoid full drafts: No complete paragraphs or essays will be provided.
+Avoid full drafts: No complete paragraphs or essays will be provided. 
 
 Instructions:
 1. Topic Selection: Begin by asking the student for their preferred topic or suggest 4-5 topics. Move forward only after a topic is chosen.
 
-2. Outline Creation: Prompt the student to draft an outline (introduction, body paragraphs, conclusion) using guiding questions. Avoid giving examples/suggested structure.
+2. Outline Creation: Prompt the student to draft an outline (introduction, body paragraphs, conclusion) using guiding questions. Avoid giving outline examples/suggested structure in any circumstances.
     - Wait for Submission: Pause and wait for the student's draft.
     - Feedback and Confirmation: Provide feedback on their outline, suggest revisions, and confirm the final version before proceeding to the essay draft.
 

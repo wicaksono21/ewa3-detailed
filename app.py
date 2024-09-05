@@ -79,7 +79,7 @@ def handle_chat(prompt):
     
     # Simulate AI response
     response = OpenAI(api_key=st.secrets["default"]["OPENAI_API_KEY"]).chat.completions.create(
-        model="gpt-4o",
+        model="gpt-4o-mini",
         messages=st.session_state["messages"],
         temperature=1,
         max_tokens=4095

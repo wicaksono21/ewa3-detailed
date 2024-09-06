@@ -82,7 +82,7 @@ def handle_chat(prompt):
         model="gpt-4o-mini",
         messages=st.session_state["messages"],
         temperature=1,
-        max_tokens=450
+        max_tokens=300
     )
     st.session_state["messages"].append(add_timestamp({"role": "assistant", "content": response.choices[0].message.content}))
     st.chat_message("assistant").write(response.choices[0].message.content)

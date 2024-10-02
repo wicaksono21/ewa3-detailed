@@ -88,9 +88,9 @@ def handle_chat(prompt):
     response = OpenAI(api_key=st.secrets["default"]["OPENAI_API_KEY"]).chat.completions.create(
         model="gpt-4o-mini",
         messages=st.session_state["messages"],
-        temperature=1,
+        temperature=0.3,
         presence_penalty=0.5,   # Penalizes repeating ideas
-        frequency_penalty=0.8,  # Penalizes repeating words too frequently
+        frequency_penalty=0.5,  # Penalizes repeating words too frequently
         max_tokens=400
     )
     st.session_state["messages"].append(add_timestamp({"role": "assistant", "content": response.choices[0].message.content}))
@@ -104,14 +104,15 @@ if 'logged_in' not in st.session_state:
     st.session_state['user'] = None
 
 if not st.session_state['logged_in']:
-    st.title("Login / Register")
+    st.title("Login")
     email = st.text_input("Email")
     password = st.text_input("Password", type="password")
-    if st.button("Register"):
-        user = auth.create_user(email=email, password=password)
-        st.session_state['logged_in'] = True
-        st.session_state['user'] = user
-    elif st.button("Login"):
+    #if st.button("Register"):
+    #    user = auth.create_user(email=email, password=password)
+    #    st.session_state['logged_in'] = True
+    #    st.session_state['user'] = user
+    #elif st.button("Login"):
+    if st.button("Login"):
         user = auth.get_user_by_email(email)
         st.session_state['logged_in'] = True
         st.session_state['user'] = user

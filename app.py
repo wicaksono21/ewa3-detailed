@@ -88,7 +88,7 @@ def handle_chat(prompt):
     response = OpenAI(api_key=st.secrets["default"]["OPENAI_API_KEY"]).chat.completions.create(
         model="gpt-4o-mini",
         messages=st.session_state["messages"],
-        temperature=0.2,
+        temperature=0.1,
         presence_penalty=0.5,   # Penalizes repeating ideas
         frequency_penalty=0.5,  # Penalizes repeating words too frequently
         max_tokens=400

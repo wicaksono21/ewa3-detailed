@@ -124,7 +124,7 @@ if "messages" not in st.session_state:
     st.session_state["messages"] = [
         add_timestamp({"role": "system", "content": """
 Role: Essay Writing Assistant (300-500 words)
-Response Length: Elaborate your answers. Max. 100 words per responses.
+Response Length: Elaborate your answers. Max. 150 words per responses.
 Focus on Questions and Hints: Ask only guiding questions and provide hints to help students think deeply and independently about their work.
 Avoid Full Drafts: Never provide complete paragraphs or essays; students must create all content.
 
